@@ -223,3 +223,30 @@ const jsonPeople = JSON.stringify(people);
 const parsePeople = JSON.parse(jsonPeople);
 // console.log(parsePeople);
 
+
+// SET. Массив с уникальными значениями, отсортированными от меньшего к большему
+const arr = [10, 1, 21, 1, 33, 3, 33, 5, 8, 8, 1, 3, 5];
+
+const sortedArr = [...new Set(arr)].sort((a, b) => a - b);
+// console.log(sortedArr);
+
+// Сортировка(оставляем все кроме значений с undefined и null). FOR...IN...
+const userSkills = {
+   css: 'b2',
+   html: 'c1',
+   js: 'a2',
+   ts: null,
+   react: undefined,
+   vue: null,
+   lodash: 'a1'
+}
+
+const userApprovedSkills = {};
+
+for (let key in userSkills) {
+   if(userSkills[key] !== undefined && userSkills[key] !== null) { 
+      userApprovedSkills[key] = userSkills[key];
+   }
+}
+
+// console.log(userApprovedSkills);
