@@ -244,7 +244,7 @@ const userSkills = {
 const userApprovedSkills = {};
 
 for (let key in userSkills) {
-   if(userSkills[key] !== undefined && userSkills[key] !== null) { 
+   if (userSkills[key] !== undefined && userSkills[key] !== null) {
       userApprovedSkills[key] = userSkills[key];
    }
 }
