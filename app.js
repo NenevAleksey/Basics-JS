@@ -263,7 +263,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/1',//url
       }
    })
    .then(response => response.json()) //преобразование из json формата
-   // .then(json => console.log(json)) //используем данные
+// .then(json => console.log(json)) //используем данные
 
 /*
 ОСНОВНЫЕ:
@@ -277,4 +277,41 @@ fetch('https://jsonplaceholder.typicode.com/posts/1',//url
    OPTIONS используется для описания параметров соединения с ресурсом.
    TRACE выполняет вызов возвращаемого тестового сообщения с ресурса.
    HEAD запрашивает ресурс так же, как и метод GET, но без тела ответа.
+*/
+
+//Promise 
+const myFirstPromise = new Promise((resolve, reject) => {
+   // выполняется асинхронная операция, которая в итоге вызовет:
+   //
+   //   resolve(someValue); // успешное завершение
+   // или
+   //   reject("failure reason"); // неудача
+});
+
+//пример 
+let myFirstPromise1 = new Promise((resolve, reject) => {
+   // Мы вызываем resolve(...), когда асинхронная операция завершилась успешно, и reject(...), когда она не удалась.
+   // В этом примере мы используем setTimeout(...), чтобы симулировать асинхронный код.
+   // В реальности вы, скорее всего, будете использовать XHR, HTML5 API или что-то подобное.
+   setTimeout(function () {
+      resolve("Success!"); // Ура! Всё прошло хорошо!
+   }, 250);
+});
+
+myFirstPromise1.then((successMessage) => {
+   // successMessage - это что угодно, что мы передали в функцию resolve(...) выше.
+   // Это необязательно строка, но если это всего лишь сообщение об успешном завершении, это наверняка будет она.
+   // console.log("Ура! " + successMessage);
+});
+
+/* 
+   Promise может находиться в трёх состояниях:
+   - ожидание (pending): начальное состояние, не исполнен и не отклонён.
+   - исполнено (fulfilled): операция завершена успешно.
+   - отклонено (rejected): операция завершена с ошибкой.
+
+Методы:
+   Promise.all(iterable) - выполнится, когда све промисы пройдут успешно или хотябы один с ошибкой
+   Promise.race(iterable) - выполнится, когда прийдет ответ из самого быстрого промиса
+   Promise.reject(reason) и Promise.resolve(value) - если нужно создавать сайт когда бекенд еще не готов)
 */
