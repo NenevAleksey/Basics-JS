@@ -254,15 +254,15 @@ for (let key in userSkills) {
 //Асинхроный js
 //метод fetch по примеру сайта JSONPlaceholder
 
-fetch('https://jsonplaceholder.typicode.com/posts/1',//url 
-   {
-      method: 'POST', // или 'GET/PUT/PATCH/DELETE'
-      body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
-      headers: {
-         'Content-Type': 'application/json'
-      }
-   })
-   .then(response => response.json()) //преобразование из json формата
+// fetch('https://jsonplaceholder.typicode.com/posts/1',//url 
+//    {
+//       method: 'POST', // или 'GET/PUT/PATCH/DELETE'
+//       body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
+//       headers: {
+//          'Content-Type': 'application/json'
+//       }
+//    })
+//    .then(response => response.json()) //преобразование из json формата
 // .then(json => console.log(json)) //используем данные
 
 /*
@@ -315,3 +315,36 @@ myFirstPromise1.then((successMessage) => {
    Promise.race(iterable) - выполнится, когда прийдет ответ из самого быстрого промиса
    Promise.reject(reason) и Promise.resolve(value) - если нужно создавать сайт когда бекенд еще не готов)
 */
+
+// ООП
+
+//создание класса
+class Rectangle {
+   constructor(width, hight) {
+      this.width = width;
+      this.hight = hight;
+   }
+
+   area() {
+      return (this.width * this.hight)
+   }
+}
+
+const rect1 = new Rectangle(5, 6);
+// console.log(rect1.area()) // должен вернуть 30
+
+//наследование
+class Parallelepiped extends Rectangle {
+   constructor(width, hight, depth) {
+      //super используется для наследования
+      super(width, hight);
+      this.depth = depth;
+   }
+
+   volume() {
+      return (this.width * this.hight * this.depth)
+   }
+}
+
+const rect2 = new Parallelepiped(5, 6, 5);
+// console.log(rect2.volume()); //должен вернуть 150
