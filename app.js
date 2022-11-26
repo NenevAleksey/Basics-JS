@@ -381,3 +381,36 @@ const rect8 = new Rectangle1(5, 4);
 const rect9 = new Parallelepiped1(5, 6, 5);
 // console.log(Rectangle1.totalFigure); //2
 // console.log(Parallelepiped1.totalFigure); //1
+
+//get and set
+class Temperature {
+   constructor(t = 0) {
+      this.celsiusTemp = t;
+   }
+   get celsius() {
+      return this.celsiusTemp;
+   }
+   get fahrenheit() {
+      return Math.round(this.celsiusTemp * 1.8 + 32);
+   }
+   set celsius(t) {
+      this.celsiusTemp = t;
+   }
+   set fahrenheit(t) {
+      this.celsiusTemp = Math.round((t - 32) / 1.8);
+   }
+   static fromFahrenheit(t) {
+      return new Temperature(Math.round((t - 32) / 1.8));
+   }
+}
+
+const day1 = new Temperature(25);
+// console.log(day1.celsius);
+// console.log(day1.fahrenheit);
+
+day1.celsius = 26;
+day1.fahrenheit = 67;
+
+const day2 = new Temperature(24);
+const day3 = Temperature.fromFahrenheit(88);
+// console.log((day3));
