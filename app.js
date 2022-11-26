@@ -329,7 +329,6 @@ class Rectangle {
       return (this.width * this.hight)
    }
 }
-
 const rect1 = new Rectangle(5, 6);
 // console.log(rect1.area()) // должен вернуть 30
 
@@ -345,6 +344,40 @@ class Parallelepiped extends Rectangle {
       return (this.width * this.hight * this.depth)
    }
 }
-
 const rect2 = new Parallelepiped(5, 6, 5);
 // console.log(rect2.volume()); //должен вернуть 150
+
+//статические свойства
+//Обычно статические методы используются для реализации функций, принадлежащих классу целиком, вообще, и при этом не относящимся к каким-то отдельным объектам.
+class Rectangle1 {
+   //колличество фигур
+   static totalFigure = 0;
+
+   constructor(width, hight) {
+      this.width = width;
+      this.hight = hight;
+      Rectangle1.totalFigure++;
+   }
+
+   area() {
+      return (this.width * this.hight)
+   }
+}
+class Parallelepiped1 extends Rectangle1 {
+   //количество именно параллелепипедов
+   static totalFigure = 0;
+
+   constructor(width, hight, depth) {
+      super(width, hight);
+      this.depth = depth;
+      Parallelepiped1.totalFigure++;
+   }
+
+   volume() {
+      return (this.width * this.hight * this.depth)
+   }
+}
+const rect8 = new Rectangle1(5, 4);
+const rect9 = new Parallelepiped1(5, 6, 5);
+// console.log(Rectangle1.totalFigure); //2
+// console.log(Parallelepiped1.totalFigure); //1
